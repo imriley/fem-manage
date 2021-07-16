@@ -1,0 +1,83 @@
+html {
+    box-sizing: border-box;
+    font-size: 100%;
+}
+
+*, *::after, *::before {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+    font-size: $small;
+    font-weight: 400;
+    color: $dkgrayishblue;
+    font-family: 'Be Vietnam', sans-serif;
+    &.noscroll {
+        overflow: hidden;
+    }
+}
+
+a, a:hover, a:visited {
+    text-decoration: none;
+}
+
+h1, h2, h3 {
+    margin-top: 0;
+    font-weight: 500;
+    color: $vdkblue;
+    line-height: 1.15;
+}
+.flexbox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.container {
+    margin: 0 auto;
+    &--pall {
+        padding: 2.5rem 1.5rem;
+        @include breakpoint-up(large) {
+            padding: 3.5rem 1.5rem;
+        }
+    }
+}
+.button {
+    position: relative;
+    font-size: $small;
+    display: inline-block;
+    padding: 18px 34px;
+    background-color: $btred;
+    border-radius: 50px;
+    font-weight: 500;
+    color: $vpred;
+    transition: opacity 300ms ease-in-out;
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(255, 255, 255, 0.35);
+        opacity: 0;
+        transition: opacity 300ms ease-in-out;
+      }
+    &:hover::before {
+        opacity: 1;
+    }
+}
+.hide-for-mobile {
+    // hide for tablet and mobile
+    @include breakpoint-down(medium) {
+      display: none;
+    }
+  }
+  .hide-for-desktop {
+    // hide for desktop viewport
+    @include breakpoint-up(large) {
+      display: none;
+    }
+  }

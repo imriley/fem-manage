@@ -1,0 +1,80 @@
+.header {
+  position: relative;
+  &.open {
+    .overlay {
+      display: block;
+    }
+    #hamburgerbtn {
+      height: 1.5rem;
+      width: 1.5rem;
+      background-image: url("/images/icon-close.svg");
+    }
+  }
+
+  .overlay {
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-image: linear-gradient(transparent, $dkgrayishblue);
+  }
+  &__logo {
+    width: 9.125rem;
+    height: 1.5rem;
+    z-index: 1;
+  }
+  &__toggle {
+    width: 1.6875rem;
+    height: 1.25rem;
+    background-image: url("/images/icon-hamburger.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    z-index: 1;
+  }
+  &__links {
+    a {
+      position: relative;
+      font-weight: 500;
+      font-size: $small;
+      color: $dkblue;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(255, 255, 255, 0.6);
+        opacity: 0;
+        transition: opacity 300ms ease-in-out;
+      }
+      &:not(:last-child) {
+        margin-right: 34px;
+      }
+      &:hover::before {
+        opacity: 1;
+      }
+    }
+  }
+  &__menu {
+    position: absolute;
+    width: calc(100% - 3rem);
+    left: 50%;
+    transform: translateX(-50%);
+    background: $white;
+    margin-top: 1.5rem; // 24px
+    padding: 1.625rem; // 26px
+    border-radius: 5px;
+
+    a {
+      display: block;
+      padding: 1rem;
+      color: $dkblue;
+      font-weight: 500;
+      text-align: center;
+    }
+  }
+}

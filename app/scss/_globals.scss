@@ -11,10 +11,14 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.5;
-    font-size: $small;
+    font-size: $font-small;
     font-weight: 400;
     color: $dkgrayishblue;
     font-family: 'Be Vietnam', sans-serif;
+    overflow-x: hidden;
+    @include breakpoint-up(large) {
+        font-size: $font-med;
+    }
     &.noscroll {
         overflow: hidden;
     }
@@ -23,12 +27,23 @@ body {
 a, a:hover, a:visited {
     text-decoration: none;
 }
-
+p {
+    margin-bottom: 2.25rem;
+}
 h1, h2, h3 {
     margin-top: 0;
     font-weight: 500;
     color: $vdkblue;
     line-height: 1.15;
+}
+h1 {
+    font-weight: 700;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    @include breakpoint-up(large) {
+        font-size: $font-xlarge;
+        margin-bottom: 3rem;
+    }
 }
 .flexbox {
     display: flex;
@@ -36,6 +51,7 @@ h1, h2, h3 {
     align-items: center;
 }
 .container {
+    max-width: 69.375rem;
     margin: 0 auto;
     &--pall {
         padding: 2.5rem 1.5rem;
@@ -46,13 +62,16 @@ h1, h2, h3 {
 }
 .button {
     position: relative;
-    font-size: $small;
+    font-size: $font-small;
     display: inline-block;
     padding: 18px 34px;
     background-color: $btred;
+    border: 0;
     border-radius: 50px;
+    cursor: pointer;
     font-weight: 500;
     color: $vpred;
+    box-shadow: 0 20px 16px -16px $btred;
     transition: opacity 300ms ease-in-out;
     &::before {
         content: "";
@@ -61,6 +80,7 @@ h1, h2, h3 {
         right: 0;
         bottom: 0;
         left: 0;
+        border-radius: 50px;
         background-color: rgba(255, 255, 255, 0.35);
         opacity: 0;
         transition: opacity 300ms ease-in-out;

@@ -57,6 +57,13 @@ body {
   font-weight: 400;
   color: #9095a7;
   font-family: 'Be Vietnam', sans-serif;
+  overflow-x: hidden;
+}
+
+@media (min-width: 64em) {
+  body {
+    font-size: 1.125rem;
+  }
 }
 
 body.noscroll {
@@ -67,11 +74,28 @@ a, a:hover, a:visited {
   text-decoration: none;
 }
 
+p {
+  margin-bottom: 2.25rem;
+}
+
 h1, h2, h3 {
   margin-top: 0;
   font-weight: 500;
   color: #1d1e25;
   line-height: 1.15;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 64em) {
+  h1 {
+    font-size: 3.25rem;
+    margin-bottom: 3rem;
+  }
 }
 
 .flexbox {
@@ -81,6 +105,7 @@ h1, h2, h3 {
 }
 
 .container {
+  max-width: 69.375rem;
   margin: 0 auto;
 }
 
@@ -100,9 +125,12 @@ h1, h2, h3 {
   display: inline-block;
   padding: 18px 34px;
   background-color: #f25f3a;
+  border: 0;
   border-radius: 50px;
+  cursor: pointer;
   font-weight: 500;
   color: #ffefeb;
+  box-shadow: 0 20px 16px -16px #f25f3a;
   transition: opacity 300ms ease-in-out;
 }
 
@@ -113,6 +141,7 @@ h1, h2, h3 {
   right: 0;
   bottom: 0;
   left: 0;
+  border-radius: 50px;
   background-color: rgba(255, 255, 255, 0.35);
   opacity: 0;
   transition: opacity 300ms ease-in-out;
@@ -138,6 +167,30 @@ h1, h2, h3 {
   position: relative;
 }
 
+.header::after {
+  content: "";
+  background: url("/images/bg-tablet-pattern.svg") no-repeat;
+  background-position: left bottom;
+  background-size: 134%;
+  position: absolute;
+  width: 19.875rem;
+  min-height: 21.25rem;
+  top: -1px;
+  right: 0;
+  z-index: -1;
+}
+
+@media (min-width: 64em) {
+  .header::after {
+    width: 50.875rem;
+    height: 41.3125rem;
+    top: 0;
+    right: 0;
+    background-size: 50.875rem;
+    transform: translate(21%, -2%);
+  }
+}
+
 .header.open .overlay {
   display: block;
 }
@@ -156,6 +209,7 @@ h1, h2, h3 {
   bottom: 0px;
   left: 0px;
   background-image: linear-gradient(transparent, #9095a7);
+  z-index: 1;
 }
 
 .header__logo {
@@ -210,6 +264,7 @@ h1, h2, h3 {
   margin-top: 1.5rem;
   padding: 1.625rem;
   border-radius: 5px;
+  z-index: 1;
 }
 
 .header__menu a {
@@ -218,5 +273,42 @@ h1, h2, h3 {
   color: #242d52;
   font-weight: 500;
   text-align: center;
+}
+
+@media (min-width: 64em) {
+  .hero__content {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 55px;
+  }
+}
+
+.hero__image {
+  text-align: center;
+}
+
+.hero__image img {
+  width: 100%;
+  max-width: 600px;
+}
+
+@media (min-width: 64em) {
+  .hero__image {
+    order: 2;
+    flex: 1;
+  }
+}
+
+.hero__text {
+  text-align: center;
+}
+
+@media (min-width: 64em) {
+  .hero__text {
+    text-align: left;
+    order: 1;
+    flex: 1;
+  }
 }
 /*# sourceMappingURL=style.css.map */

@@ -1,29 +1,44 @@
 .hero {
-    &__content {
-        @include breakpoint-up(large) {
-            display: flex;
-            align-items: center;
-            flex-direction: row;
-            margin-top: 55px;
-        }
+  position: relative;
+  &::before {
+    @include breakpoint-down(medium) {
+      position: absolute;
+      content: "";
+      background: url("/images/bg-tablet-pattern.svg") no-repeat;
+      background-position: left bottom;
+      background-size: 305px;
+      width: 134px;
+      height: 305px;
+      bottom: -2%;
+      right: 0;
+      z-index: -1;
     }
-    &__image {
-        text-align: center;
-        img {
-            width: 100%;
-            max-width: 600px;
-        }
-        @include breakpoint-up(large) {
-            order: 2;
-            flex: 1;
-        }
+  }
+  &__content {
+    @include breakpoint-up(large) {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      margin-top: 55px;
     }
-    &__text {
-        text-align: center;
-        @include breakpoint-up(large) {
-            text-align: left;
-            order: 1;
-            flex: 1;
-        }
+  }
+  &__image {
+    text-align: center;
+    img {
+      width: 100%;
+      max-width: 600px;
     }
+    @include breakpoint-up(large) {
+      order: 2;
+      flex: 1;
+    }
+  }
+  &__text {
+    text-align: center;
+    @include breakpoint-up(large) {
+      text-align: left;
+      order: 1;
+      flex: 1;
+    }
+  }
 }

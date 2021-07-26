@@ -1,0 +1,97 @@
+.carousel {
+  &__content {
+    text-align: center;
+    h2 {
+      text-align: center;
+      margin-bottom: 106px;
+    }
+  }
+  &__container {
+    min-width: 100%;
+    position: relative;
+    margin: auto;
+    @include breakpoint-up(large) {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  &__item {
+    display: none;
+    background-color: $vlgray;
+    text-align: center;
+    @include breakpoint-up(large) {
+      width: 30%;
+      padding: 0px 12px;
+    }
+    img {
+      width: 74px;
+      height: 74px;
+      margin-top: -37px;
+      margin-bottom: 30px;
+    }
+    &.prev_slide {
+      @include breakpoint-up(large) {
+        order: 1;
+      }
+    }
+    &.next_slide {
+      @include breakpoint-up(large) {
+        order: 3;
+      }
+    }
+  }
+  .dot {
+    cursor: pointer;
+    height: 12px;
+    width: 12px;
+    margin: 0 2px;
+    border: 1px solid $btred;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    &:hover {
+      background-color: $btred;
+    }
+  }
+  .active {
+    background-color: $btred;
+  }
+  &__btn {
+    margin-top: 46px;
+  }
+  &__bottom {
+    background-color: $btred;
+    padding-top: 4rem;
+    padding-bottom: 3.125rem;
+    @include breakpoint-up(large) {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+    &__content {
+      text-align: center;
+      @include breakpoint-up(large) {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+    h2 {
+      color: $vlgray;
+      font-size: 37px;
+      padding: 0px 0.5rem;
+      margin-bottom: 35px;
+      @include breakpoint-up(large) {
+        margin-bottom: 0;
+        text-align: left;
+        font-size: 40px;
+        width: 45%;
+      }
+    }
+    &__btn {
+      color: $btred;
+      background-color: $vlgray;
+      font-weight: 700;
+    }
+  }
+}

@@ -1,5 +1,6 @@
 .header {
   position: relative;
+  overflow-x: clip;
   &::after {
     content: "";
     background: url("/images/bg-tablet-pattern.svg") no-repeat;

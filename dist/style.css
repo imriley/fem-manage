@@ -2,6 +2,14 @@
   visibility: hidden;
 }
 
+.fade-in {
+  animation: fade-in 300ms ease-in-out forwards;
+}
+
+.fade-out {
+  animation: fade-out 300ms ease-in-out forwards;
+}
+
 @keyframes fade-in {
   from {
     visibility: hidden;
@@ -17,10 +25,6 @@
   }
 }
 
-.fade-in {
-  animation: fade-in 300ms ease-in-out forwards;
-}
-
 @keyframes fade-out {
   from {
     visibility: visible;
@@ -34,10 +38,6 @@
     visibility: hidden;
     opacity: 0;
   }
-}
-
-.fade-out {
-  animation: fade-out 300ms ease-in-out forwards;
 }
 
 html {
@@ -187,6 +187,7 @@ h3 {
 
 .header {
   position: relative;
+  overflow-x: clip;
 }
 
 .header::after {
@@ -447,5 +448,130 @@ h3 {
   flex: 0 0 100%;
   margin-top: 1.125rem;
   margin-bottom: 3.375rem;
+}
+
+.carousel__content {
+  text-align: center;
+}
+
+.carousel__content h2 {
+  text-align: center;
+  margin-bottom: 106px;
+}
+
+.carousel__container {
+  min-width: 100%;
+  position: relative;
+  margin: auto;
+}
+
+@media (min-width: 64em) {
+  .carousel__container {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.carousel__item {
+  display: none;
+  background-color: #fafafa;
+  text-align: center;
+}
+
+@media (min-width: 64em) {
+  .carousel__item {
+    width: 30%;
+    padding: 0px 12px;
+  }
+}
+
+.carousel__item img {
+  width: 74px;
+  height: 74px;
+  margin-top: -37px;
+  margin-bottom: 30px;
+}
+
+@media (min-width: 64em) {
+  .carousel__item.prev_slide {
+    order: 1;
+  }
+}
+
+@media (min-width: 64em) {
+  .carousel__item.next_slide {
+    order: 3;
+  }
+}
+
+.carousel .dot {
+  cursor: pointer;
+  height: 12px;
+  width: 12px;
+  margin: 0 2px;
+  border: 1px solid #f25f3a;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.carousel .dot:hover {
+  background-color: #f25f3a;
+}
+
+.carousel .active {
+  background-color: #f25f3a;
+}
+
+.carousel__btn {
+  margin-top: 46px;
+}
+
+.carousel__bottom {
+  background-color: #f25f3a;
+  padding-top: 4rem;
+  padding-bottom: 3.125rem;
+}
+
+@media (min-width: 64em) {
+  .carousel__bottom {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+}
+
+.carousel__bottom__content {
+  text-align: center;
+}
+
+@media (min-width: 64em) {
+  .carousel__bottom__content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.carousel__bottom h2 {
+  color: #fafafa;
+  font-size: 37px;
+  padding: 0px 0.5rem;
+  margin-bottom: 35px;
+}
+
+@media (min-width: 64em) {
+  .carousel__bottom h2 {
+    margin-bottom: 0;
+    text-align: left;
+    font-size: 40px;
+    width: 45%;
+  }
+}
+
+.carousel__bottom__btn {
+  color: #f25f3a;
+  background-color: #fafafa;
+  font-weight: 700;
 }
 /*# sourceMappingURL=style.css.map */

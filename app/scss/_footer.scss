@@ -1,0 +1,169 @@
+.footer {
+    background-color: $vdkblue;
+    &__content {
+        text-align: center;
+        padding-top: 3.25rem;
+        @include breakpoint-up(large) {
+            display: grid;
+            grid-template-rows: 1fr auto;
+            grid-template-areas:
+                "logo links form"
+                "social links copyright";
+            padding-bottom: 3.75rem;
+            grid-template-columns: 1fr 2fr 1fr;
+            grid-gap: 1rem;
+        }
+    }
+    &__form {
+        display: flex;
+        justify-content: center;
+        @include breakpoint-up(large) {
+            grid-area: form;
+        }
+        &__group {
+            position: relative;
+            width: 15rem;
+        }
+        input {
+            height: 2.875rem;
+            padding-left: 1.625rem;
+            border-radius: 1.875rem;
+            outline: none;
+            border: none;
+            margin-right: 0.5rem;
+            width: 100%;
+            &.active {
+                color: $btred;
+            }
+        }
+        .error_message {
+            display: none;
+            position: absolute;
+            color: $btred;
+            font-size: 0.75rem;
+            bottom: -1.25rem;
+            left: 1.0625rem;
+            @include breakpoint-up(large) {
+                bottom: 1.75rem;
+            }
+            &.active {
+                display: block;
+            }
+        }
+
+        button {
+            height: 2.875rem;
+            width: 5.125rem;
+            border-radius: 3.125rem;
+            background-color: $btred;
+            margin-left: 0.5rem;
+            border: none;
+            color: $vlgray;
+            transition: opacity 150ms ease-in-out;
+            position: relative;
+            cursor: pointer;
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                border-radius: 3.125rem;
+                background-color: rgba(255, 255, 255, 0.35);
+                opacity: 0;
+                transition: opacity 300ms ease-in-out;
+            }
+            &:hover::before {
+                opacity: 1;
+            }
+        }
+    }
+    &__links {
+        display: flex;
+        text-align: left;
+        justify-content: center;
+        margin-top: 3.75rem;
+        @include breakpoint-up(large) {
+            grid-area: links;
+            margin-top: 0rem;
+            font-size: 1rem;
+            justify-content: space-around;
+        }
+        a {
+            color: $vlgray;
+            margin-bottom: 0.75rem;
+            transition: color 200ms ease-in-out;
+            &:hover {
+                color: $btred;
+            }
+        }
+    }
+    &__link_1 {
+        display: flex;
+        flex-direction: column;
+        margin-right: 6.75rem;
+    }
+    &__link_2 {
+        display: flex;
+        flex-direction: column;
+    }
+    &__socials {
+        margin-top: 3.375rem;
+        @include breakpoint-up(large) {
+            grid-area: social;
+            margin-top: 0rem;
+        }
+        a {
+            svg {
+                @include breakpoint-up(large) {
+                    width: 1.375rem;
+                    height: 1.375rem;
+                }
+            }
+            svg path {
+                transition: 200ms fill ease-in-out;
+                &:hover {
+                    fill: $btred;
+                }
+            }
+            &:not(:last-child) {
+                margin-right: 2rem;
+                @include breakpoint-up(large) {
+                    margin-right: 0.75rem;
+                }
+            }
+        }
+    }
+    &__logo {
+        margin-top: 3.375rem;
+        @include breakpoint-up(large) {
+            grid-area: logo;
+            margin-top: 0rem;
+        }
+    }
+    &__copyright {
+        font-size: 0.75rem;
+        margin-top: 3.375rem;
+        @include breakpoint-up(large) {
+            grid-area: copyright;
+            margin-top: 0rem;
+        }
+    }
+    .attribution {
+        padding-bottom: 0.125rem;
+        text-align: center;
+        font-size: 0.75rem;
+        margin-top: 2rem;
+        @include breakpoint-up(large) {
+            margin-top: 0rem;
+        }
+        a {
+            color: $vlgray;
+            transition: color 200ms ease-in-out;
+            &:hover {
+                color: $btred;
+            }
+        }
+    }
+}

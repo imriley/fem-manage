@@ -5,6 +5,8 @@ const overlay = document.querySelector('.overlay');
 const fadeElems = document.querySelectorAll('.has-fade');
 const btnHamburger = document.querySelector('#hamburgerbtn');
 const mediaQuery = window.matchMedia('(min-width: 1024px)');
+const formItem = document.querySelectorAll('.form-input');
+const formError = document.querySelector('#error_message');
 
 console.log('script loaded');
 
@@ -99,5 +101,29 @@ function handleCarouselChange(e) {
         slides(1);
     } else {
         showSlides(1)
+    }
+}
+
+function emailCheck(event) {
+    for (let i = 0; i < formItem.length; i++) {
+        console.log(formItem[i].checkValidity())
+        if (!formItem[i].checkValidity()) {
+            formItem[i].oninvalid = function (e) {
+                e.preventDefault();
+            }
+            if (!formError.classList.contains('active')) {
+                formError.classList.toggle('active');
+                formItem[i].classList.toggle('active');
+            }
+            formItem[i].addEventListener('keydown', function () {
+                formItem[i].classList.toggle('active');
+            })
+        } else {
+            if (formError.classList.contains('active')) {
+                formError.classList.toggle('active');
+                formItem[i].classList.toggle('active');
+            }
+        }
+
     }
 }
